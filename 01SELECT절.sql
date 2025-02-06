@@ -1,0 +1,29 @@
+-- CTRL + / == 빠른 주석
+
+select * from employees;
+select * from departments;
+select * from locations;
+select * from jobs;
+--특정 컬럼만 조회 하려면 , 나열
+SELECT EMPLOYEE_ID , FIRST_NAME, PHONE_NUMBER FROM EMPLOYEES;
+
+-- 문자, 날짜는 왼쪽으로 표시, 숫자는 오른쪽에 나타납니다.
+SELECT FIRST_NAME, HIRE_DATE, SALARY, COMMISSION_PCT FROM EMPLOYEES;
+
+-- 숫자 컬럼은 * / + - 가 됩니다.
+SELECT FIRST_NAME, SALARY, SALARY + SALARY * 0.1 FROM EMPLOYEES;
+
+-- 컬럼 별칭 ALIAS
+SELECT FIRST_NAME AS 이름, SALARY 급여 FROM EMPLOYEES; 
+
+SELECT FIRST_NAME AS 이름, SALARY 급여, SALARY + SALARY * 0.1 AS "최종 급여" FROM EMPLOYEES; 
+
+-- 문자열 붙기 ||
+SELECT FIRST_NAME || '''님의 급여는' || SALARY || '입니다' AS SALARY FROM EMPLOYEES;
+
+-- DISTINCT
+SELECT DISTINCT DEPARTMENT_ID FROM EMPLOYEES;
+SELECT DISTINCT FIRST_NAME , DEPARTMENT_ID FROM EMPLOYEES; -- 조회된 데이터 기준으로 중복 제거
+
+-- ROWID(데이터 주소), ROWNUM(데이터 조회된 순서)
+SELECT EMPLOYEE_ID, FIRST_NAME, ROWID, ROWNUM FROM EMPLOYEES;
